@@ -1,12 +1,37 @@
 import React from "react";
 import styled from "styled-components";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createList } from "../redux/modules/reduxsignup";
 
-const Signup = () => {
+const Signup = (props) => {
+  const username = React.useRef(null);
+  const password = React.useRef(null);
+  const passwordCheck = React.useRef(null);
+  const nickname = React.useRef(null);
 
-  const navigate =useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const saveWord = () => {
+
+        console.log(username.current.value); 
+        console.log(password.current.value); 
+        console.log(passwordCheck.current.value); 
+        console.log(nickname.current.value); 
+
+
+    const newWord = {
+      username: username.current.value,
+      password: password.current.value,
+      passwordCheck: passwordCheck.current.value,
+      nickname: nickname.current.value,
+    };
+    dispatch(createList(newWord));
+  };
+
   return (
-    <WrapAll>
+    <Wrap>
       <Title>
         <h2>회원가입</h2>
       </Title>
@@ -14,13 +39,18 @@ const Signup = () => {
         <p>
           <span>*</span>필수입력사항
         </p>
+        <form onSubmit={(e) => saveWord(e)}>
         <InputWrap>
           <Label>
             아이디 <span>*</span>
           </Label>
           <InputTag>
-            <Input placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"></Input>
-            <CheckButton >중복확인</CheckButton>
+            <Input
+              type="text"
+              placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
+              ref={username}
+            />
+            <CheckButton>중복확인</CheckButton>
           </InputTag>
         </InputWrap>
 
@@ -29,7 +59,11 @@ const Signup = () => {
             비밀번호 <span>*</span>
           </Label>
           <InputTag>
-            <Input placeholder="비밀번호를 입력해주세요"></Input>
+            <Input
+              type="text"
+              placeholder="비밀번호를 입력해주세요"
+              ref={password}
+            />
           </InputTag>
         </InputWrap>
 
@@ -38,7 +72,11 @@ const Signup = () => {
             비밀번호확인 <span>*</span>
           </Label>
           <InputTag>
-            <Input placeholder="비밀번호를 한번 더 입력해주세요"></Input>
+            <Input
+              type="text"
+              placeholder="비밀번호를 한번 더 입력해주세요"
+              ref={passwordCheck}
+            />
           </InputTag>
         </InputWrap>
 
@@ -47,22 +85,36 @@ const Signup = () => {
             이름 <span>*</span>
           </Label>
           <InputTag>
-            <Input placeholder="이름을 입력해주세요"></Input>
+            <Input
+              type="text"
+              placeholder="이름을 입력해주세요"
+              ref={nickname}
+            />
           </InputTag>
         </InputWrap>
         <SignupButtonWrap>
-          <SignupButton  onClick={() => { navigate("/user/login"); }}>가입하기</SignupButton>
+          <SignupButton
+            // onClick={() => {
+            //   navigate("/user/login");
+            // }}
+          >
+            가입하기
+          </SignupButton>
+          
         </SignupButtonWrap>
-
+        </form>
       </SignupWrap>
-    </WrapAll>
+    </Wrap>
   );
 };
 
-const WrapAll = styled.div`
-    
+const Wrap = styled.div`
+  width: 1050px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 30px;
+  // background-color: beige;
 `;
-
 
 const Title = styled.div`
   width: 1050px;
@@ -95,9 +147,6 @@ const SignupWrap = styled.div`
 const InputWrap = styled.tr`
   /* background-color: beige; */
   display: flex;
- 
-
-  
 `;
 
 const Label = styled.th`
@@ -141,20 +190,20 @@ const CheckButton = styled.button`
 `;
 
 const SignupButtonWrap = styled.div`
-margin-top: 30px;
- border-top:1px solid rgb(247, 247, 247);
-    padding-top: 40px;
-    text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid rgb(247, 247, 247);
+  padding-top: 40px;
+  text-align: center;
 `;
 
 const SignupButton = styled.button`
-        width: 210px;
-    height: 50px;
-    font-size: 16px;
-    border: 1px solid #5f0081;
-    background-color: #5f0080;
-    color: #fff;
-    border-radius: 5px;
+  width: 210px;
+  height: 50px;
+  font-size: 16px;
+  border: 1px solid #5f0081;
+  background-color: #5f0080;
+  color: #fff;
+  border-radius: 5px;
 `;
 
 export default Signup;
