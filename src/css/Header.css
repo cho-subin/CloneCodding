@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.header_top {
+    background-color: #5f0080;
+}
+
+.header_top_container {
+    width: 1050px;
+    margin: 0 auto;
+    position: relative;
+    padding: 5px 0;
+}
+
+.header_top_container>p {
+    color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    line-height: 32px;
+}
+
+.header_top_container p b {
+    font-weight: 500;
+}
+
+.header_top_container p img {
+    filter: invert(1);
+    position: relative;
+    top: 4px;
+}
+
+.header_top_container a {
+    position: absolute;
+    right: 0;
+    top: 11px;
+}
+
+.header_top_container a img {
+    width: 22px;
+}
+
+/* header_bottom style sheet */
+.header_bottom{
+    background-color: #ffffff;
+}
+
+.hb_area1 {
+    width: 1050px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.hb_area1>a:first-child {
+    float: left;
+}
+
+/* 샛별배송 img */
+.hb_area1 img {
+    width: 135px;
+}
+
+.signup {
+    float: left;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 12px;
+}
+
+.login {
+    float: left;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 12px;
+}
+
+.signup::after {
+    content: "|";
+    font-size: 10px;
+    color: #ccc;
+    position: relative;
+    top: -1px;
+    margin: 8px;
+}
+
+.signup > a {
+    color: #333;
+    text-decoration: none;
+}
+
+.login > a {
+    color: #333;
+    text-decoration: none;
+}
+
+.signup > a {
+    color: #8100ac;
+}
+
+.login::after {
+    display: none;
+}
+
+.user_menu {
+    float: right;
+    margin-top: 3px;
+}
+
+.hb_area2 {
+    width: 1050px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#logo {
+    display: inline-block;
+    margin-top: 0px;
+}
+
+#logo img {
+    width: 103px;
+}
+
+.hb_area3 {
+    width: 1050px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.main_menu li {
+    list-style: none;
+    float: left;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.main_menu li>img{
+    margin-right: 5px;
+}
+
+.main_menu li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    padding: 15px 35px;
+}
+
+.main_menu li #all_cate {
+    padding-left: 0;
+}
+
+/* .ham_btn::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    background-image: url(../../public/images/ico_gnb_all_off.png);
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+}
+
+.ham_btn:hover {
+    background-image: url(../../public/images/ico_gnb_all.png);
+} */
+
+.main_menu li a:hover {
+    color: #660088;
+    text-decoration: underline;
+}
+
+.main_menu li #all_cate:hover {
+    text-decoration: none;
+}
+
+.search_box {
+    display: inline-block;
+    background-color: #f4f4f4;
+    padding: 0 10px;
+    border-radius: 99px;
+    padding-right: 5px;
+}
+
+.search_box input {
+    background-color: transparent;
+    border: 0;
+    font-size: 14px;
+    font-family: "Noto Sans KR", sans-serif;
+    outline: none;
+    width: 130px;
+}
+
+.search_box img {
+    width: 30px;
+}
+
+.search_box>* {
+    vertical-align: middle;
+}
+
+.search_menu>* {
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.search_menu>a {
+    margin-left: 6px
+}
+
+.search_menu {
+    float: right;
+    margin-top: 5px;
+}

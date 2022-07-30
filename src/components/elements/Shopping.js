@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const Shopping = () => {
+function Shopping() {
+
   return (
-    <div>Shopping</div>
-  )
-}
+    <div className="shopping">
+      <div className="">
 
-export default Shopping
+      </div>
+    </div>
+  );
+}
+export default Shopping;

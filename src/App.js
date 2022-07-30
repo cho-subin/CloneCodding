@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/elements/Header";
@@ -12,19 +13,20 @@ import Footer from "./components/elements/Footer";
 function App() {
 
   return (
-    <div>
+    <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route exact path="/" element={<Main/>}/>
           <Route path="/user/login" element={<Login/>} />
           <Route path="/user/signup" element={<Signup />} />
           <Route path="/api/post" element={<Detail />} />
           <Route path="/api/cart" element={<Cart />} />
         </Routes>
         <Footer/>
+       
       </BrowserRouter>
     </div>
-  )
+  );
 }
 export default App;
