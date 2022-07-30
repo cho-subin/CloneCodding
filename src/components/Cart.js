@@ -1,17 +1,18 @@
 import React from "react";
 import '../css/Cart.css';
+import Shopping from "./elements/Shopping";
 
 function Cart() {
 
   return (
     <div className="cart">
       <div className="cart_title">
-          <h1>장바구니</h1>
-        </div>
+        <h1>장바구니</h1>
+      </div>
       <div className="cart_wrap">
         <div className="choice_list">
           <div className="choice_btn">
-            <img src="/images/cart_click_btn.png"/>
+            <img src="/images/cart_click_btn.png" />
           </div>
           <div className="choice_all">
             {/* &nbsp; : 한칸 띄우기(중복사용 가능) */}
@@ -22,6 +23,8 @@ function Cart() {
           </div>
         </div>
         <hr />
+        {/* 매핑 */}
+        <Shopping/>
       </div>
       <div className="cart_wrap_right">
         <div className="price_wrap">
@@ -39,7 +42,7 @@ function Cart() {
           </div>
           <div className="payment">
             <button>주문하기</button>
-        </div>
+          </div>
         </div>
       </div>
     </div>

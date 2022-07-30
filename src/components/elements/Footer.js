@@ -102,6 +102,7 @@ const FooterWrap = styled.div`
   width: 100%;
   height: 80px;
   position : relative;
+  text-align: left;
   bottom : 0;
   /* display: flex; */
   justify-content: center;
