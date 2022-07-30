@@ -2,7 +2,6 @@ import React from "react";
 import '../css/Main.css'
 import Banner from "./elements/Banner";
 import ProductCard from "./elements/ProductCard";
-import { useNavigate } from "react-router-dom";
 
 function Main() {
 

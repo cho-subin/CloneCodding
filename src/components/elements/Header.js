@@ -1,7 +1,10 @@
 import React from "react";
 import './../../css/Header.css'
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+
+    const navigate = useNavigate();
 
     return (
         <div className="header">
@@ -18,15 +21,15 @@ function Header() {
                             <img src="/images/delivery_200323.gif" />
                         </a>
                         <div className="user_menu">
-                            <div className="signup">
+                            <div className="signup" onClick={()=>{navigate("/user/signup")}}>
                                 <a href="">회원가입</a>
                             </div>
-                            <div className="login">
+                            <div className="login" onClick={()=>{navigate("/user/login")}}>
                                 <a href="">로그인</a>
                             </div>
                         </div>
                     </div>
-                    <div className="hb_area2">
+                    <div className="hb_area2" onClick={()=>{navigate("/")}}>
                         <a href="" id="logo">
                             <img src="/images/logo_x2.png" />
                         </a>
@@ -60,7 +63,7 @@ function Header() {
                                     <img src="/images/ico_search_x2.png" />
                                 </a>
                             </div>
-                            <a href="">
+                            <a href="" onClick={()=>{navigate("/api/cart")}}>
                                 <img src="/images/ico_cart.svg" />
                             </a>
                         </div>

@@ -1,24 +1,25 @@
 .cart{
     width: 1050px;
+    height: 70rem;
     margin: 0 auto;
-    background-color: antiquewhite;
+    /* background-color: rgb(132, 97, 52); */
     padding-top: 50px;
     font-family: "Noto Sans KR", sans-serif;
 }
 
 .cart_wrap {
-    width: 750px;
-    background-color: beige;
+    width: 730px;
+    /* background-color: beige; */
     float: left;
 }
 
 .price_wrap{
     width: 200px;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .cart_title{
-    background-color: aqua;
+    /* background-color: aqua; */
     margin-bottom: 60px;
 }
 
@@ -27,6 +28,7 @@
 }
 
 .choice_list{
+    width: 1050px;
     height: 50px;
     /* background-color: aquamarine; */
 }
@@ -76,10 +78,11 @@ hr{
 }
 
 .cart_wrap_right {
+    margin-top: 50px;
     position: relative;
     width: 284px;
     min-height: 942px;
-    background-color: aqua;
+    /* background-color: aqua; */
     float: right;
 }
 
