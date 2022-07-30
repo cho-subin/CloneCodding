@@ -1,0 +1,186 @@
+.product_basic_info{
+    margin-top: 30px;
+}
+
+.container {
+    width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+    font-family: "Noto Sans KR", sans-serif;
+    /* background-color: #e8a828; */
+}
+
+/* .container>div {
+    float: left;
+} */
+
+.img_area {
+    float: left;
+}
+
+.basic_info {
+    float: right;
+}
+
+.item_name {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.sub_name {
+    color: #999;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.discount_title {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.discounted_price>span {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.discounted_price>.rate {
+    color: orangered;
+}
+
+.discounted_price {
+    margin-bottom: 10px;
+}
+
+.origin_price {
+    margin-bottom: 10px;
+}
+
+.login_info {
+    color: purple;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.specs_table {
+    border-top: 1px solid #eee;
+}
+
+.specs_table td:first-child {
+    width: 150px;
+    padding: 20px 0;
+    color: #666;
+}
+
+.specs_table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.specs_table td:nth-child(2) {
+    padding: 20px 0;
+}
+
+.specs_table td p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.item_count {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.item_count * {
+    vertical-align: top;
+}
+
+.item_count button {
+    border: 0;
+    background-color: transparent;
+    width: 35px;
+    cursor: pointer;
+}
+
+.total {
+    text-align: right;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.total span:first-child {
+    font-size: 12px;
+}
+
+.total span:nth-child(2) {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+}
+
+.total span:nth-child(3) {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.point_area {
+    text-align: right;
+    font-size: 15px;
+    font-weight: 400;
+    color: #555;
+}
+
+.point_area .point {
+    font-size: 12px;
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 99px;
+    background-color: #ffbf00;
+    border: 1px solid #e8a828;
+    color: #fff;
+    margin-right: 3px;
+}
+
+.point_area {
+    margin-bottom: 20px;
+}
+
+.button_grp {
+    font-size: 0;
+    margin-bottom: 100px;
+}
+
+.button_grp button {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    width: 25%;
+    height: 60px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.button_grp button:nth-child(1) {
+    width: 100%;
+    background-color: #5f0080;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* .button_grp button:nth-child(2) {
+    border: 1px solid #5f0080;
+    color: #5f0080;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.button_grp button:nth-child(3) {
+    width: calc(50% - 20px);
+    background-color: #5f0080;
+    font-weight: 500;
+    color: #fff;
+} */
