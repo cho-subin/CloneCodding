@@ -1,4 +1,7 @@
+
 .product_grid_area {
+    width: 1025px;
+    margin: 0 auto;
     padding-top: 100px;
     font-family: "Noto Sans KR", sans-serif;
 }

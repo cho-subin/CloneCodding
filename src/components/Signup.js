@@ -6,7 +6,7 @@ const Signup = () => {
 
   const navigate =useNavigate();
   return (
-    <div>
+    <Wrap>
       <Title>
         <h2>회원가입</h2>
       </Title>
@@ -55,9 +55,17 @@ const Signup = () => {
         </SignupButtonWrap>
 
       </SignupWrap>
-    </div>
+    </Wrap>
   );
 };
+
+const Wrap = styled.div`
+  width: 1050px;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 30px;
+  // background-color: beige;
+`
 
 const Title = styled.div`
   width: 1050px;

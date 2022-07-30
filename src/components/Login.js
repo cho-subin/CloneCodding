@@ -22,6 +22,7 @@ const LoginWrap =styled.div`
     width: 340px;
     margin: 0 auto ;
     padding-top: 90px;
+    padding-bottom: 120px;
     /* background-color: aliceblue; */
     h3{
       font-weight: 800;
