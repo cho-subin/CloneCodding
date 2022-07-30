@@ -1,0 +1,109 @@
+.banner_content {
+    width: 500%;
+    font-size: 0;
+    animation: banner_ani 25s infinite;
+}
+
+.banner_item {
+    width: 20%;
+    height: 370px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.banner_item img {
+    position: absolute;
+    left: 50%;
+    margin-left: -950px;
+}
+
+.banner_wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-width: 1050px;
+    /* 1050px보다 더 작아질 수 없음 */
+}
+
+.main_banner_area {
+    position: relative;
+}
+
+.banner_buttons {
+    position: absolute;
+    top: 50%;
+    width: 1050px;
+    left: 50%;
+    margin-left: -525px;
+    margin-top: -25px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.main_banner_area:hover .banner_buttons {
+    opacity: 1;
+}
+
+.banner_buttons button {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#banner_prev {
+    float: left;
+    margin-left: -100px;
+}
+
+#banner_next {
+    float: right;
+    margin-right: -100px;
+}
+
+@keyframes banner_ani {
+    0% {
+        margin-left: 0;
+    }
+
+    5% {
+        margin-left: -100%;
+    }
+
+    20% {
+        margin-left: -100%;
+    }
+
+    25% {
+        margin-left: -200%;
+    }
+
+    40% {
+        margin-left: -200%;
+    }
+
+    45% {
+        margin-left: -300%;
+    }
+
+    60% {
+        margin-left: -300%;
+    }
+
+    65% {
+        margin-left: -400%;
+    }
+
+    80% {
+        margin-left: -400%;
+    }
+
+    85% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
