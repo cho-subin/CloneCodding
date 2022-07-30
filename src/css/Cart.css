@@ -1,0 +1,178 @@
+.cart{
+    width: 1050px;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    padding-top: 50px;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.cart_wrap {
+    width: 750px;
+    background-color: beige;
+    float: left;
+}
+
+.price_wrap{
+    width: 200px;
+    background-color: blue;
+}
+
+.cart_title{
+    background-color: aqua;
+    margin-bottom: 60px;
+}
+
+.cart_title>h1{
+    color: #333;
+}
+
+.choice_list{
+    height: 50px;
+    /* background-color: aquamarine; */
+}
+
+.choice_btn{
+    float: left;
+    margin-right: 10px;
+}
+
+.choice_btn>img{
+    width: 20px;
+    height: 20px;
+}
+
+.choice_all{
+    float: left;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.choice_all>h3{
+    color: #333;
+}
+
+.choice_all>h3>span{
+    color: rgb(188, 188, 188);
+}
+
+.cart_list{
+    float: left;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 15px;
+    color: #333;
+}
+
+.choice_list > h3:first-child {
+    float: left;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 12px;
+}
+
+hr{
+    display: block;
+    float: center;
+    margin-top: 0px;
+}
+
+.cart_wrap_right {
+    position: relative;
+    width: 284px;
+    min-height: 942px;
+    background-color: aqua;
+    float: right;
+}
+
+.price_wrap{
+    position: sticky;
+    top: 0;
+    width: 284px;
+}
+
+.total_price{
+    width: 284px;
+    padding: 15px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+    background-color: rgb(249, 249, 249);
+}
+
+.total_price>h1:first-child{
+    font-size: 19px;
+    float: left;
+    color: rgb(76, 76, 76);
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+.total_price>h1:last-child{
+    font-size: 19px;
+    float: right;
+    color: rgb(76, 76, 76);
+    padding-right: 8px;
+    box-sizing: border-box;
+}
+
+.delivery_fee{
+    width: 284px;
+    padding: 15px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+    background-color: rgb(249, 249, 249);
+}
+
+.delivery_fee>h1:first-child{
+    font-size: 19px;
+    float: left;
+    color: rgb(76, 76, 76);
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+.delivery_fee>h1:last-child{
+    font-size: 19px;
+    float: right;
+    color: rgb(76, 76, 76);
+    padding-right: 8px;
+    box-sizing: border-box;
+}
+
+.expected_payment{
+    width: 284px;
+    padding: 15px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+    background-color: rgb(249, 249, 249);
+}
+
+.expected_payment>h1:first-child{
+    font-size: 19px;
+    float: left;
+    color: rgb(76, 76, 76);
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+.expected_payment>h1:last-child{
+    font-size: 19px;
+    float: right;
+    color: rgb(76, 76, 76);
+    padding-right: 8px;
+    box-sizing: border-box;
+}
+
+.payment{
+    width: 284px;
+    margin-top: 30px;
+    background-color: rgb(179, 221, 221);
+}
+
+.payment > button{
+    width: 284px;
+    height: 50px;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 5px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
