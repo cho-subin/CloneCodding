@@ -24,6 +24,7 @@ function App() {
           <Route path="/api/cart" element={<Cart />} />
         </Routes>
         <Footer/>
+       
       </BrowserRouter>
     </div>
   );
