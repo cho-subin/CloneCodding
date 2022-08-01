@@ -10,7 +10,7 @@ function Header() {
         <div className="header">
             <div className="header_top">
                 <div className="header_top_container">
-                    <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요! <img src="/images/ico_more_link_x1.png" /></p>
+                    <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요! <img src="/images/ico_more_link_x1.png"/></p>
                     <a href="">
                         <img src="/images/ico_close_999_32x32.png" />
                     </a>
@@ -26,6 +26,12 @@ function Header() {
                             </div>
                             <div className="login" onClick={()=>{navigate("/login")}}>
                                 <a href="">로그인</a>
+                            </div>
+                            <div className="login" onClick={ ()=>{
+                    sessionStorage.clear();
+                   
+                } }>
+                                <a href="">로그아웃</a>
                             </div>
                         </div>
                     </div>
