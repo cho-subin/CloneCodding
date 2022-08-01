@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { createList } from "../redux/modules/reduxsignup";
 
 const Signup = (props) => {
@@ -12,22 +13,23 @@ const Signup = (props) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const my_lists = useSelector((state) => state.reduxsignup);
+  console.log(my_lists);
 
-  const saveWord = () => {
+  const saveWord = (e) => {
+    e.preventDefault();
+    console.log(username.current.value);
+    console.log(password.current.value);
+    console.log(passwordCheck.current.value);
+    console.log(nickname.current.value);
 
-        console.log(username.current.value); 
-        console.log(password.current.value); 
-        console.log(passwordCheck.current.value); 
-        console.log(nickname.current.value); 
-
-
-    const newWord = {
+    const new_word = {
       username: username.current.value,
       password: password.current.value,
       passwordCheck: passwordCheck.current.value,
       nickname: nickname.current.value,
     };
-    dispatch(createList(newWord));
+    dispatch(createList(new_word));
   };
 
   return (
@@ -40,68 +42,67 @@ const Signup = (props) => {
           <span>*</span>필수입력사항
         </p>
         <form onSubmit={(e) => saveWord(e)}>
-        <InputWrap>
-          <Label>
-            아이디 <span>*</span>
-          </Label>
-          <InputTag>
-            <Input
-              type="text"
-              placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
-              ref={username}
-            />
-            <CheckButton>중복확인</CheckButton>
-          </InputTag>
-        </InputWrap>
+          <InputWrap>
+            <Label>
+              아이디 <span>*</span>
+            </Label>
+            <InputTag>
+              <Input
+                type="text"
+                placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
+                ref={username}
+              />
+              <CheckButton>중복확인</CheckButton>
+            </InputTag>
+          </InputWrap>
 
-        <InputWrap>
-          <Label>
-            비밀번호 <span>*</span>
-          </Label>
-          <InputTag>
-            <Input
-              type="text"
-              placeholder="비밀번호를 입력해주세요"
-              ref={password}
-            />
-          </InputTag>
-        </InputWrap>
+          <InputWrap>
+            <Label>
+              비밀번호 <span>*</span>
+            </Label>
+            <InputTag>
+              <Input
+                type="text"
+                placeholder="비밀번호를 입력해주세요"
+                ref={password}
+              />
+            </InputTag>
+          </InputWrap>
 
-        <InputWrap>
-          <Label>
-            비밀번호확인 <span>*</span>
-          </Label>
-          <InputTag>
-            <Input
-              type="text"
-              placeholder="비밀번호를 한번 더 입력해주세요"
-              ref={passwordCheck}
-            />
-          </InputTag>
-        </InputWrap>
+          <InputWrap>
+            <Label>
+              비밀번호확인 <span>*</span>
+            </Label>
+            <InputTag>
+              <Input
+                type="text"
+                placeholder="비밀번호를 한번 더 입력해주세요"
+                ref={passwordCheck}
+              />
+            </InputTag>
+          </InputWrap>
 
-        <InputWrap>
-          <Label>
-            이름 <span>*</span>
-          </Label>
-          <InputTag>
-            <Input
-              type="text"
-              placeholder="이름을 입력해주세요"
-              ref={nickname}
-            />
-          </InputTag>
-        </InputWrap>
-        <SignupButtonWrap>
-          <SignupButton
+          <InputWrap>
+            <Label>
+              이름 <span>*</span>
+            </Label>
+            <InputTag>
+              <Input
+                type="text"
+                placeholder="이름을 입력해주세요"
+                ref={nickname}
+              />
+            </InputTag>
+          </InputWrap>
+          <SignupButtonWrap>
+            <SignupButton
             // onClick={() => {
             //   navigate("/user/login");
             // }}
-          >
-            가입하기
-          </SignupButton>
-          
-        </SignupButtonWrap>
+            >
+              가입하기
+            </SignupButton>
+          </SignupButtonWrap>
         </form>
       </SignupWrap>
     </Wrap>
