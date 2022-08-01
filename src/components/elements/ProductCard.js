@@ -10,7 +10,7 @@ function ProductCard() {
     <div className="product_card">
       <div className="product_wrap">
         {/* map 여기서부터 돌려야됨 */}
-        <div className="product" onClick={() => { navigate("/api/cart") }} >
+        <div className="product" onClick={() => { navigate("/api/post") }} >
           <div className="prod_img">
             <img src="/images/1589778571433l0.jpg" />
           </div>

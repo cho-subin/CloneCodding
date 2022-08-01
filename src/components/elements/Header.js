@@ -27,6 +27,12 @@ function Header() {
                             <div className="login" onClick={()=>{navigate("/user/login")}}>
                                 <a href="">로그인</a>
                             </div>
+                            <div className="login" onClick={ ()=>{
+                    sessionStorage.clear();
+                   
+                } }>
+                                <a href="">로그아웃</a>
+                            </div>
                         </div>
                     </div>
                     <div className="hb_area2" onClick={()=>{navigate("/")}}>
