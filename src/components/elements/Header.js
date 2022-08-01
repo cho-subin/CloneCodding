@@ -10,7 +10,7 @@ function Header() {
         <div className="header">
             <div className="header_top">
                 <div className="header_top_container">
-                    <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요! <img src="/images/ico_more_link_x1.png" /></p>
+                    <p>지금 가입하고 인기상품 <b>100원</b>에 받아가세요! <img src="/images/ico_more_link_x1.png"/></p>
                     <a href="">
                         <img src="/images/ico_close_999_32x32.png" />
                     </a>
@@ -21,10 +21,10 @@ function Header() {
                             <img src="/images/delivery_200323.gif" />
                         </a>
                         <div className="user_menu">
-                            <div className="signup" onClick={()=>{navigate("/user/signup")}}>
+                            <div className="signup" onClick={()=>{navigate("/signup")}}>
                                 <a href="">회원가입</a>
                             </div>
-                            <div className="login" onClick={()=>{navigate("/user/login")}}>
+                            <div className="login" onClick={()=>{navigate("/login")}}>
                                 <a href="">로그인</a>
                             </div>
                             <div className="login" onClick={ ()=>{
@@ -69,7 +69,7 @@ function Header() {
                                     <img src="/images/ico_search_x2.png" />
                                 </a>
                             </div>
-                            <a href="" onClick={()=>{navigate("/api/cart")}}>
+                            <a href="" onClick={()=>{navigate("/cart")}}>
                                 <img src="/images/ico_cart.svg" />
                             </a>
                         </div>

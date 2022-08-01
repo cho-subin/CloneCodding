@@ -97,7 +97,7 @@ const Signup = (props) => {
           <SignupButtonWrap>
             <SignupButton
             // onClick={() => {
-            //   navigate("/user/login");
+            //   navigate("/login");
             // }}
             >
               가입하기
