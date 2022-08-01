@@ -2,37 +2,30 @@
 const LOAD = "reduxcart/LOAD";
 const CREATE = "reduxcart/CREATE";
 
-const initialState = {
-  Posts: [
-    { 
-        postId:"1",
-        title: "제목입니다1",
-        imageUrl:"/images/cancle.png",
-        price:"3000",
-        deliveryFee:"2000",
-        salesUnit:"1통",
-        weight:"250g"
-    },
-    { 
-        postId:"2",
-        title: "제목입니다2",
-        imageUrl:"/images/cancle.png",
-        price:"5500",
-        deliveryFee:"2000",
-        salesUnit:"1통",
-        weight:"2L"
-    },
-    { 
-        postId:"3",
-        title: "제목입니다3",
-        imageUrl:"/images/cancle.png",
-        price:"25000",
-        deliveryFee:"10000",
-        salesUnit:"1박스",
-        weight:"250Kg",
-    },
-  ],
-};
+const initialState ={ 
+    carts:{
+        username : "user",
+        Posts:[
+          {
+             postId:"1",
+             title: "제목입니다1",
+             price:2000,
+             imageUrl:"/images/cancle.png",
+          },
+          {
+             postId:"2",
+             title: "제목입니다2",
+             price:2200,
+             imageUrl:"/images/….png",
+          }
+        ],
+    
+         totalPrice:25000,
+         deliveryTotal :15000
+        }
+        
+    };
+
 
 //Action Creators
 export function loadList(cart_list) {

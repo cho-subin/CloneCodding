@@ -31,7 +31,7 @@ const Login = (props) => {
         />
         <LoginButton
           onClick={() => {
-            sessionStorage.setItem("tokentest", username.current.value);
+            sessionStorage.setItem("테스트용", username.current.value);
           }}
         >
           로그인

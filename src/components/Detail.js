@@ -1,26 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import './../css/Detail.css';
 
 function Detail() {
 
+  const params = useParams();
+
+  const [detailData,setDetailData]=useState({});
+
+  const productList = useSelector((state)=>state.reduxProduct.productList);
+
+  console.log(productList);
+  
+  useEffect(()=>{
+    setDetailData(productList);
+  },[])
+
   return (
-    <div class="product_basic_info">
-      <div class="container">
-        <div class="img_area">
+    <div className="product_basic_info">
+      <div className="container">
+        <div className="img_area">
           <img src="/images/1589778571433l0.jpg" />
         </div>
-        <div class="basic_info">
-          <h2 class="item_name">생 모레 치즈</h2>
-          <p class="sub_name">| 오직 마켓컬리에서만 |</p>
-          <p class="discount_title">회원할인가</p>
-          <p class="discounted_price">
-            <span class="price">9,800 </span>원
+        <div className="basic_info">
+          <h2 className="item_name">{detailData[0].title}</h2>
+          <p className="sub_name">| 오직 마켓컬리에서만 |</p>
+          <p className="discount_title">회원할인가</p>
+          <p className="discounted_price">
+            <span className="price">{detailData[0].price} </span>원
           </p>
-          <table class="specs_table">
+          <table className="specs_table">
             <tbody>
               <tr>
                 <td>중량/용량</td>
-                <td>150g</td>
+                <td>{detailData.price}</td>
               </tr>
               <tr>
                 <td>배송구분</td>
@@ -48,7 +62,7 @@ function Detail() {
               <tr>
                 <td>구매수량</td>
                 <td>
-                  <span class="item_count">
+                  <span className="item_count">
                     <button>-</button>
                     <span>1</span>
                     <button>+</button>
@@ -57,16 +71,16 @@ function Detail() {
               </tr>
             </tbody>
           </table>
-          <div class="total">
+          <div className="total">
             <span>총 상품금액 : </span>
             <span>9,800</span>
             <span>원</span>
           </div>
-          <div class="point_area">
-            <span class="point">적립</span>
+          <div className="point_area">
+            <span className="point">적립</span>
             <span>구매 시, 5원 적립</span>
           </div>
-          <div class="button_grp">
+          <div className="button_grp">
             {/* <button>재입고 알림</button>
             <button>늘 사는 것</button> */}
             <button>장바구니 담기</button>

@@ -15,13 +15,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header/>
         <Routes>
           <Route exact path="/" element={<Main/>}/>
-          <Route path="/user/login" element={<Login/>} />
-          <Route path="/user/signup" element={<Signup />} />
-          <Route path="/api/post" element={<Detail />} />
-          <Route path="/api/cart" element={<Cart />} />
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/post/:postId" element={<Detail/>} />
+          <Route path="/cart" element={<Cart/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

@@ -7,9 +7,10 @@ import { useSelector } from "react-redux";
 function Cart() {
   const dispatch = useDispatch();
 
-  const loadCart = useSelector((state) => state.reduxcart.Posts);
+  const loadCart = useSelector((state) => state.reduxcart.carts);
 
   console.log(loadCart);
+  
 
   return (
     <div className="cart">
@@ -33,7 +34,7 @@ function Cart() {
         </div>
         <hr />
         {/* 매핑 */}
-        {loadCart.map((item, index) => {
+        {loadCart.Posts.map((item, index) => {
           return <Shopping list={item} key={index} />;
         })}
       </div>
@@ -41,15 +42,15 @@ function Cart() {
         <div className="price_wrap">
           <div className="total_price">
             <h1>상품금액</h1>
-            <h1>{loadCart.price}</h1>
+            <h1>{loadCart.totalPrice}원</h1>
           </div>
           <div className="delivery_fee">
             <h1>배달비</h1>
-            <h1>{loadCart.deliveryFee}</h1>
+            <h1>{loadCart.deliveryTotal}원</h1>
           </div>
           <div className="expected_payment">
             <h1>결제예정금액</h1>
-            <h1>{loadCart.price}</h1>
+            <h1>{(loadCart.deliveryTotal+loadCart.totalPrice)}원</h1>
           </div>
           <div className="payment">
             <button>주문하기</button>
