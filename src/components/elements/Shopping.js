@@ -19,7 +19,7 @@ function Shopping() {
           <img src="/images/ico_close_999_32x32.png" />
         </div>
       </div>
-      <hr className="underline"/>
+      <hr className="underline" />
     </div>
   );
 }

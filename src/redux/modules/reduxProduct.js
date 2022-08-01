@@ -5,7 +5,7 @@ let initialState = {
             postId: 1,
             title: '대추방울토마토 150g',
             imageUrl: '',
-            price:'1,900',
+            price: '1,900',
             deliveryFee: '2000',
             salesUnit: '1통',
             weight: '250g',
@@ -14,7 +14,7 @@ let initialState = {
             postId: 2,
             title: '국산콩 두부 150g',
             imageUrl: '',
-            price:'1,900',
+            price: '1,900',
             deliveryFee: '2000',
             salesUnit: '1통',
             weight: '250g',
@@ -23,7 +23,7 @@ let initialState = {
             postId: 3,
             title: '국산콩 두부 150g',
             imageUrl: '',
-            price:'1,900',
+            price: '1,900',
             deliveryFee: '2000',
             salesUnit: '1통',
             weight: '250g',
@@ -37,7 +37,7 @@ function reducer(state = initialState, action = {}) {
             console.log(action)
             // state.productList.push(action.payload)
             action.payload.map(
-                (item)=>{
+                (item) => {
                     state.productList.push(item)
                 }
             )

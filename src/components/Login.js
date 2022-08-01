@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const Login = ({ is_login, setIsLogin }) => {
+
+  const navigate = useNavigate();
+
   let [loginId, setLoginId] = useState("");
 
   let sessionStorage = window.sessionStorage;
@@ -11,7 +14,6 @@ const Login = (props) => {
   const username = React.useRef(null);
   const password = React.useRef(null);
 
-  const navigate = useNavigate();
   return (
     <div>
       <LoginWrap>
@@ -20,18 +22,20 @@ const Login = (props) => {
           type="text"
           placeholder="아이디를 입력해주세요"
           ref={username}
-          // onChange={(e) => {
-          //   setLoginId(e.target.value);
-          // }}
+        // onChange={(e) => {
+        //   setLoginId(e.target.value);
+        // }}
         />
         <InputPw
           type="text"
           placeholder="비밀번호를 입력해주세요"
-          ref ={password}
+          ref={password}
         />
         <LoginButton
           onClick={() => {
             sessionStorage.setItem("tokentest", username.current.value);
+            alert('로그인 성공하셨습니다!');
+            navigate("/");
           }}
         >
           로그인
