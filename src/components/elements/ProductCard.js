@@ -17,10 +17,10 @@ function ProductCard() {
           <div className="prod_txt">
             <h2 className="prod_name">친환경 대추방울토마토 500g</h2>
             <p className="prod_price">
-              <span className="discount_rate">22%</span>
+              {/* <span className="discount_rate">22%</span> */}
               <span className="discounted">5,444원</span>
             </p>
-            <p className="origin_price">6,980원</p>
+            {/* <p className="origin_price">6,980원</p> */}
           </div>
         </div>
       </div>
