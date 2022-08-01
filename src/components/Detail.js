@@ -13,9 +13,9 @@ function Detail() {
 
   console.log(productList);
   
-  useEffect(()=>{
-    setDetailData(productList);
-  },[])
+  // useEffect(()=>{
+  //   setDetailData(productList);
+  // },[])
 
   return (
     <div className="product_basic_info">
