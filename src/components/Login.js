@@ -12,7 +12,7 @@ const Login = () => {
           <InputId placeholder='아이디를 입력해주세요'></InputId>
           <InputPw placeholder='비밀번호를 입력해주세요'></InputPw>
           <LoginButton  onClick={() => { navigate("/"); }}>로그인</LoginButton>
-          <SignupButton onClick={() => { navigate("/user/signup"); }} >회원가입</SignupButton>
+          <SignupButton onClick={() => { navigate("/signup"); }} >회원가입</SignupButton>
       </LoginWrap>
     </div>
   )

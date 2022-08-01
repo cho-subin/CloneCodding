@@ -30,6 +30,7 @@
 .prod_name {
     margin-top: 10px;
     color: #444;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -42,10 +43,7 @@
 .discount_rate {
     color: orangered;
     margin-right: 5px;
-}
-
-.discounted {
-    color: #333;
+    font-size: 20px;
 }
 
 .origin_price {

@@ -21,10 +21,10 @@ function Header() {
                             <img src="/images/delivery_200323.gif" />
                         </a>
                         <div className="user_menu">
-                            <div className="signup" onClick={()=>{navigate("/user/signup")}}>
+                            <div className="signup" onClick={()=>{navigate("/signup")}}>
                                 <a href="">회원가입</a>
                             </div>
-                            <div className="login" onClick={()=>{navigate("/user/login")}}>
+                            <div className="login" onClick={()=>{navigate("/login")}}>
                                 <a href="">로그인</a>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ function Header() {
                                     <img src="/images/ico_search_x2.png" />
                                 </a>
                             </div>
-                            <a href="" onClick={()=>{navigate("/api/cart")}}>
+                            <a href="" onClick={()=>{navigate("/cart")}}>
                                 <img src="/images/ico_cart.svg" />
                             </a>
                         </div>

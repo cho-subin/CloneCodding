@@ -3,14 +3,14 @@ import '../css/Main.css'
 import Banner from "./elements/Banner";
 import ProductCard from "./elements/ProductCard";
 
-function Main() {
+function Main({cardList}) {
 
     return (
         <div className="main">
             <Banner />
             <div className="product_grid_area">
                 <h1>이 상품 어때요?</h1>
-                <ProductCard/>
+                <ProductCard cardList={cardList}/>
             </div>
         </div>
     );
