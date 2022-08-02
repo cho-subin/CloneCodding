@@ -6,8 +6,8 @@ function Header() {
 
     const navigate = useNavigate();
 
-    sessionStorage.getItem("tokentest");
-    console.log(sessionStorage.getItem("tokentest"));
+    sessionStorage.getItem("token");
+    console.log(sessionStorage.getItem("token"));
 
     return (
         <div className="header">
@@ -80,9 +80,16 @@ function Header() {
                                     <img src="/images/ico_search_x2.png" />
                                 </a>
                             </div>
-                            <a href="" onClick={() => { navigate("/cart") }}>
+                            {(sessionStorage.getItem("token")) ?
+                                (
+                                    <a href="" onClick={() => { navigate("/cart") }}>
                                 <img src="/images/ico_cart.svg" />
                             </a>
+                                ) : (
+                                    <a href="" onClick={() => { window.alert("로그인 후 이용해주세요!") }}>
+                                    <img src="/images/ico_cart.svg" />
+                                </a>
+                                )}
                         </div>
                     </div>
                 </div>
