@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = ({ is_login, setIsLogin }) => {
 
@@ -13,6 +14,22 @@ const Login = ({ is_login, setIsLogin }) => {
 
   const username = React.useRef(null);
   const password = React.useRef(null);
+
+  const axiosLogIn = async() => {
+    const responce = await axios.post("http://13.209.65.84/login",{
+      username: username.current.value,
+      password: password.current.value,
+    });
+    console.log(responce);
+    if(responce.status===200 && responce.headers.authorization){
+      sessionStorage.setItem("token",responce.headers.authorization)
+      alert('로그인 성공하셨습니다!')
+      navigate("/");
+    }
+    else{
+      alert('로그인 실패하셨습니다!')
+    }
+  }
 
   return (
     <div>
@@ -27,15 +44,16 @@ const Login = ({ is_login, setIsLogin }) => {
         // }}
         />
         <InputPw
-          type="text"
+          type="password"
           placeholder="비밀번호를 입력해주세요"
           ref={password}
         />
         <LoginButton
           onClick={() => {
-            sessionStorage.setItem("tokentest", username.current.value);
-            alert('로그인 성공하셨습니다!');
-            navigate("/");
+            axiosLogIn();
+            // sessionStorage.getItem("token")
+            // alert('로그인 성공하셨습니다!');
+            // navigate("/");
           }}
         >
           로그인

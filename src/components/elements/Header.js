@@ -24,7 +24,7 @@ function Header() {
                             <img src="/images/delivery_200323.gif" />
                         </a>
                         <div className="user_menu">
-                            {(sessionStorage.getItem("tokentest")) ?
+                            {(sessionStorage.getItem("token")) ?
                                 (
                                     <div className="login" onClick={() => {
                                         sessionStorage.clear();

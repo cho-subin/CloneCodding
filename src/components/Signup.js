@@ -35,6 +35,18 @@ const Signup = (props) => {
     dispatch(createList(new_word));
   };
 
+  const axiosSignUp = async() => {
+    const responce = await axios.post("http://13.209.65.84/user/signup",{
+      username: username.current.value,
+      password: password.current.value,
+      passwordCheck: passwordCheck.current.value,
+      nickname: nickname.current.value,
+    });
+    console.log(responce);
+    window.alert(responce.data)
+    navigate("/");
+  }
+
   return (
     <Wrap>
       <Title>
@@ -99,9 +111,10 @@ const Signup = (props) => {
           </InputWrap>
           <SignupButtonWrap>
             <SignupButton
-            // onClick={() => {
-            //   navigate("/login");
-            // }}
+            onClick={() => {
+              axiosSignUp();
+              navigate("/login");
+            }}
             >
               가입하기
             </SignupButton>
