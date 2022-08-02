@@ -13,6 +13,10 @@ const Signup = (props) => {
   //   const b = await axios.get(url), {data}
   // }
   const axiosSignUp = async()=>{
+    if(nickname.current.value ===""){
+      window.alert("이름을 입력해주세요!");
+      return 
+    }
     try{
       const res = await axios.post("http://13.209.65.84/user/signup",{
       username : username.current.value,
@@ -20,16 +24,17 @@ const Signup = (props) => {
       passwordCheck : passwordCheck.current.value,
       nickname: nickname.current.value
     });
-    console.log(res);
     window.alert(res.data);
+    console.log(res);
     navigate("/login");
-    } catch(e){
+  }
+    catch(e){
       // if(e.response.data.message==="아이디는 3자 이상 입력해주세요")
       console.log(e.response.data.message);
       window.alert(e.response.data.message);    }
     
   }
-
+  
   const username = React.useRef(null);
   const password = React.useRef(null);
   const passwordCheck = React.useRef(null);
@@ -120,12 +125,12 @@ const Signup = (props) => {
 
           <InputWrap>
             <Label>
-              이름 <span>*</span>
+              닉네임 <span>*</span>
             </Label>
             <InputTag>
               <Input
                 type="text"
-                placeholder="이름을 입력해주세요"
+                placeholder="닉네임을 입력해주세요"
                 ref={nickname}
               />
             </InputTag>

@@ -17,7 +17,7 @@ console.log(props);
           <h3>{props.list.title}</h3>
         </div>
         <div className="shopping_price">
-          <h3>{props.list.price}원</h3>
+          <h3>{props.list.price.toLocaleString("ko-KR")}원</h3>
         </div>
         <div className="del_btn">
           <img src="/images/ico_close_999_32x32.png" />
