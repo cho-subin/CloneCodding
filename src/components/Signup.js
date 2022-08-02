@@ -12,7 +12,7 @@ const Signup = (props) => {
   // const A = async()=>{
   //   const b = await axios.get(url), {data}
   // }
-  const axiosSignup = async()=>{
+  const axiosSignUp = async()=>{
     try{
       const res = await axios.post("http://13.209.65.84/user/signup",{
       username : username.current.value,
@@ -26,10 +26,10 @@ const Signup = (props) => {
     } catch(e){
       // if(e.response.data.message==="아이디는 3자 이상 입력해주세요")
       console.log(e.response.data.message);
-      window.alert(e.response.data.message)
-;    }
+      window.alert(e.response.data.message);    }
     
   }
+
   const username = React.useRef(null);
   const password = React.useRef(null);
   const passwordCheck = React.useRef(null);
@@ -55,6 +55,18 @@ const Signup = (props) => {
     };
     dispatch(createList(new_word));
   };
+
+  // const axiosSignUp = async() => {
+  //   const responce = await axios.post("http://13.209.65.84/user/signup",{
+  //     username: username.current.value,
+  //     password: password.current.value,
+  //     passwordCheck: passwordCheck.current.value,
+  //     nickname: nickname.current.value,
+  //   });
+  //   console.log(responce);
+  //   window.alert(responce.data)
+  //   navigate("/");
+  // }
 
   return (
     <Wrap>
@@ -120,7 +132,9 @@ const Signup = (props) => {
           </InputWrap>
           <SignupButtonWrap>
             <SignupButton
-            onClick={axiosSignup}
+            onClick={() => {
+              axiosSignUp();
+            }}
             >
               가입하기
             </SignupButton>
