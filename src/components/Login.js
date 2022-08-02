@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = ({ is_login, setIsLogin }) => {
 
@@ -13,6 +14,26 @@ const Login = ({ is_login, setIsLogin }) => {
 
   const username = React.useRef(null);
   const password = React.useRef(null);
+
+  const axiosLogin = async()=>{
+    try{
+      const res =await axios.post("http://13.209.65.84/login",{
+      username : username.current.value,
+      password : password.current.value,
+    })
+    console.log(res.headers.authorization);
+    if(res.status ===200 && res.headers.authorization ){
+      sessionStorage.setItem("token", res.headers.authorization);
+      window.alert( "로그인 하셨습니다!");
+      navigate("/");
+    }
+  }catch(e){
+    window.alert("로그인 정보를 다시 확인해주세요!")
+    }
+    
+    };
+    // sessionStorage.setItem("token", res.headers.authorization)
+  
 
   return (
     <div>
@@ -32,18 +53,14 @@ const Login = ({ is_login, setIsLogin }) => {
           ref={password}
         />
         <LoginButton
-          onClick={() => {
-            sessionStorage.setItem("tokentest", username.current.value);
-            alert('로그인 성공하셨습니다!');
-            navigate("/");
-          }}
+          onClick={() => { axiosLogin(); }}
         >
           로그인
         </LoginButton>
 
         <SignupButton
           onClick={() => {
-            navigate("/user/signup");
+            navigate("/signup");
           }}
         >
           회원가입
