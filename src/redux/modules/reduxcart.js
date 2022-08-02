@@ -22,8 +22,8 @@ const initialState ={
     
          totalPrice:25000,
          deliveryTotal :15000
-        }
         
+    }
     };
 
 

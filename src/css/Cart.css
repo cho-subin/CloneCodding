@@ -63,6 +63,11 @@
     font-family: "Noto Sans KR", sans-serif;
     font-size: 15px;
     color: #333;
+    cursor: pointer;
+}
+
+.cart_list:hover{
+    color :blueviolet;
 }
 
 .choice_list > h3:first-child {

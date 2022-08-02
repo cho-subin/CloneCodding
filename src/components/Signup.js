@@ -12,25 +12,30 @@ const Signup = (props) => {
   // const A = async()=>{
   //   const b = await axios.get(url), {data}
   // }
-  const axiosSignUp = async () => {
-    try {
-      const res = await axios.post("http://13.209.65.84/user/signup", {
-        username: username.current.value,
-        password: password.current.value,
-        passwordCheck: passwordCheck.current.value,
-        nickname: nickname.current.value
-      });
-      console.log(res);
-      window.alert(res.data);
-      navigate("/login");
-    } catch (e) {
+  const axiosSignUp = async()=>{
+    if(nickname.current.value ===""){
+      window.alert("이름을 입력해주세요!");
+      return 
+    }
+    try{
+      const res = await axios.post("http://13.209.65.84/user/signup",{
+      username : username.current.value,
+      password : password.current.value,
+      passwordCheck : passwordCheck.current.value,
+      nickname: nickname.current.value
+    });
+    window.alert(res.data);
+    console.log(res);
+    navigate("/login");
+  }
+    catch(e){
       // if(e.response.data.message==="아이디는 3자 이상 입력해주세요")
       console.log(e.response.data.message);
       window.alert(e.response.data.message);
     }
 
   }
-
+  
   const username = React.useRef(null);
   const password = React.useRef(null);
   const passwordCheck = React.useRef(null);
@@ -122,12 +127,12 @@ const Signup = (props) => {
 
           <InputWrap>
             <Label>
-              이름 <span>*</span>
+              닉네임 <span>*</span>
             </Label>
             <InputTag>
               <Input
                 type="text"
-                placeholder="이름을 입력해주세요"
+                placeholder="닉네임을 입력해주세요"
                 ref={nickname}
               />
             </InputTag>
