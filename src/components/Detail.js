@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import './../css/Detail.css';
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function Detail() {
 
   const params = useParams();
 
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
-  const [detailData,setDetailData]=useState({});
+  const [detailData, setDetailData] = useState({});
 
-  const productList = useSelector((state)=>state.reduxProduct.productList);
+  const productList = useSelector((state) => state.reduxProduct.productList);
 
   console.log(productList);
-  
+
   sessionStorage.getItem("token");
 
   // useEffect(()=>{
@@ -89,19 +89,17 @@ function Detail() {
             {/* <button>재입고 알림</button>
             <button>늘 사는 것</button> */}
 
-      {(sessionStorage.getItem("token")) ?
-                                (
-                                  <button onClick={() => {
-                                    navigate("/cart");
-                                }}>장바구니 담기</button>
-                                
-                                ) : (
-                                  <button onClick={() => {
-                                    window.alert("로그인 후 이용 가능합니다!");
-                                }}>장바구니 담기</button>
-                                )}  
+            {(sessionStorage.getItem("token")) ?
+              (
+                <button onClick={() => {
+                  navigate("/cart");
+                }}>장바구니 담기</button>
 
-            
+              ) : (
+                <button onClick={() => {
+                  window.alert("로그인 후 이용 가능합니다!");
+                }}>장바구니 담기</button>
+              )}
           </div>
         </div>
       </div>

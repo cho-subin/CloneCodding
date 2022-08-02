@@ -83,12 +83,12 @@ function Header() {
                             {(sessionStorage.getItem("token")) ?
                                 (
                                     <a href="" onClick={() => { navigate("/cart") }}>
-                                <img src="/images/ico_cart.svg" />
-                            </a>
+                                        <img src="/images/ico_cart.svg" />
+                                    </a>
                                 ) : (
                                     <a href="" onClick={() => { window.alert("로그인 후 이용해주세요!") }}>
-                                    <img src="/images/ico_cart.svg" />
-                                </a>
+                                        <img src="/images/ico_cart.svg" />
+                                    </a>
                                 )}
                         </div>
                     </div>
