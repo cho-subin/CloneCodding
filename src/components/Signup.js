@@ -31,8 +31,9 @@ const Signup = (props) => {
     catch(e){
       // if(e.response.data.message==="아이디는 3자 이상 입력해주세요")
       console.log(e.response.data.message);
-      window.alert(e.response.data.message);    }
-    
+      window.alert(e.response.data.message);
+    }
+
   }
   
   const username = React.useRef(null);
@@ -93,7 +94,8 @@ const Signup = (props) => {
                 placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합"
                 ref={username}
               />
-              <CheckButton>중복확인</CheckButton>
+              {/* 백에서 중복확인 없애셔서 우리도 이버튼 필요없음! */}
+              {/* <CheckButton>중복확인</CheckButton> */}
             </InputTag>
           </InputWrap>
 
@@ -137,9 +139,9 @@ const Signup = (props) => {
           </InputWrap>
           <SignupButtonWrap>
             <SignupButton
-            onClick={() => {
-              axiosSignUp();
-            }}
+              onClick={() => {
+                axiosSignUp();
+              }}
             >
               가입하기
             </SignupButton>

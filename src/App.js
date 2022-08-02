@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route exact path="/" element={<Main />} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/post/:postId" element={<Detail />} />
           <Route path="/cart" element={<Cart />} />
