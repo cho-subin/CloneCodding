@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../css/ProductCard.css";
 import { useDispatch, useSelector } from "react-redux";
+import {productAction} from '../../redux/actions/productAction';
 
 function ProductCard() {
 
@@ -21,10 +22,10 @@ function ProductCard() {
   console.log(productList);
 
   // 통신할때 쓰기!
-  // useEffect(()=>{
-  //   dispatch({type:'PRODUCT_LIST', payload:productList}) //middleware로 쓰기
-  //   console.log(data)
-  // },[])
+  useEffect(()=>{
+    dispatch(productAction.getProducts()) //middleware로 쓰기
+    // console.log(data)
+  },[])
 
   return (
     <div className="product_card">
@@ -33,12 +34,12 @@ function ProductCard() {
           return (
             <div className="product" onClick={() => { navigate(`/post/${list.postId}`) }} key={index}>
               <div className="prod_img">
-                <img src="/images/1589778571433l0.jpg" />
+                <img src={list.image} alt="" />
               </div>
               <div className="prod_txt">
-                <h2 className="prod_name">{list.title}</h2>
+                <h2 className="prod_name">{list.title+" "+list.weight}</h2>
                 <p className="prod_price">
-                  <span className="discount_rate">{list.price}</span>
+                  <span className="discount_rate">{list.price.toLocaleString("ko-KR")}원</span>
                 </p>
               </div>
             </div>
