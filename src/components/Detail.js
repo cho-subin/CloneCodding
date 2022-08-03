@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import './../css/Detail.css';
 import { useNavigate } from "react-router-dom"
+import axios from "axios";
 
 function Detail() {
 
@@ -22,6 +23,23 @@ function Detail() {
   //   setDetailData(productList);
   // },[])
 
+  const axiosAddcart = async()=>{
+    const Token = sessionStorage.getItem("token")
+    const res = await axios.post(`http://13.209.65.84/api/post/item/${params.id}`,
+    {
+      id: params.id
+    }
+  ,{
+    headers:{
+      "Authorization":Token
+    }
+  }
+  )
+  console.log(res);
+};
+
+console.log(params);
+
   return (
     <div className="product_basic_info">
       <div className="container">
@@ -29,17 +47,17 @@ function Detail() {
           <img src="/images/1589778571433l0.jpg" />
         </div>
         <div className="basic_info">
-          <h2 className="item_name">{detailData[0].title}</h2>
+          <h2 className="item_name"></h2>
           <p className="sub_name">| 오직 마켓컬리에서만 |</p>
           <p className="discount_title">회원할인가</p>
           <p className="discounted_price">
-            <span className="price">{detailData[0].price} </span>원
+            <span className="price"> </span>원
           </p>
           <table className="specs_table">
             <tbody>
               <tr>
                 <td>중량/용량</td>
-                <td>{detailData.price}</td>
+                <td></td>
               </tr>
               <tr>
                 <td>배송구분</td>
@@ -91,13 +109,12 @@ function Detail() {
 
             {(sessionStorage.getItem("token")) ?
               (
-                <button onClick={() => {
-                  navigate("/cart");
-                }}>장바구니 담기</button>
+                <button onClick={() => {axiosAddcart();}}>장바구니 담기</button>
 
               ) : (
                 <button onClick={() => {
                   window.alert("로그인 후 이용 가능합니다!");
+                  navigate("/login");
                 }}>장바구니 담기</button>
               )}
           </div>

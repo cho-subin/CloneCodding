@@ -32,7 +32,7 @@ function ProductCard() {
       <div className="product_wrap">
         {productList.map((list, index) => {
           return (
-            <div className="product" onClick={() => { navigate(`/post/${list.postId}`) }} key={index}>
+            <div className="product" onClick={() => { navigate(`/post/${list.id}`) }} key={index}>
               <div className="prod_img">
                 <img src={list.image} alt="" />
               </div>

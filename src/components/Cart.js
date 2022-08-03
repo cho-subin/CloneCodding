@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/Cart.css";
 import Shopping from "./elements/Shopping";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -15,7 +16,29 @@ function Cart() {
   console.log(loadCart);
 
 
-  
+  useEffect(()=>{
+    axiosViewcart()
+  },[]);
+
+  const axiosViewcart = async()=> {
+    const Token= sessionStorage.getItem("token");
+    const res = await axios.get("http://13.209.65.84/api/cart",
+    {headers :{
+      "Authorization":Token
+    }
+    })
+    console.log("axiosViewcart",res);
+    // return res
+  }
+
+console.log(axiosViewcart);
+
+
+  // const axiosDeleteall =async()=>{
+  //   const ros =await axios.delete("http://13.209.65.84/api/cart")
+  //   console.log("axiosDeleteall",ros);
+  //   return ros
+  // }
 
   return (
     <div className="cart">
@@ -33,11 +56,9 @@ function Cart() {
               전체선택 (0/1) <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             </h3>
           </div>
-          <div className="cart_list" onClick={() => {
-                                window.location.reload();
-                                }}>
+          {/* <div className="cart_list" onClick={() => {axiosDeleteall()}}>
             <h3 >전체삭제</h3>
-          </div>
+          </div> */}
         </div>
         <hr />
         {/* 매핑 */}
