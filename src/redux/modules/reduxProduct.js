@@ -1,6 +1,7 @@
 
 let initialState = {
-    productList: []
+    productList: [],
+    productDetail: {}
 };
 
 function reducer(state = initialState, action = {}) {
@@ -8,6 +9,12 @@ function reducer(state = initialState, action = {}) {
         case "PRODUCT_LIST":
             console.log(action)
             state.productList=action.payload
+            return {
+                ...state,
+            };
+        case "PRODUCT_DETAIL":
+            console.log(action)
+            state.productDetail=action.payload
             return {
                 ...state,
             };

@@ -21,25 +21,25 @@ function ProductCard() {
 
   console.log(productList);
 
-  // 통신할때 쓰기!
-  useEffect(()=>{
-    dispatch(productAction.getProducts()) //middleware로 쓰기
-    // console.log(data)
-  },[])
+  // // 통신할때 쓰기!
+  // useEffect(()=>{
+  //   dispatch(productAction.getProducts()) //middleware로 쓰기
+  //   // console.log(data)
+  // },[])
 
   return (
     <div className="product_card">
       <div className="product_wrap">
         {productList.map((list, index) => {
           return (
-            <div className="product" onClick={() => { navigate(`/post/${list.id}`) }} key={index}>
+            <div className="product" onClick={() => { navigate(`/post/${list?.id}`) }} key={index}>
               <div className="prod_img">
-                <img src={list.image} alt="" />
+                <img src={list?.image} alt="" />
               </div>
               <div className="prod_txt">
-                <h2 className="prod_name">{list.title+" "+list.weight}</h2>
+                <h2 className="prod_name">{list?.title+" "+list?.weight}</h2>
                 <p className="prod_price">
-                  <span className="discount_rate">{list.price.toLocaleString("ko-KR")}원</span>
+                  <span className="discount_rate">{list?.price.toLocaleString("ko-KR")}원</span>
                 </p>
               </div>
             </div>

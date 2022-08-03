@@ -2,43 +2,39 @@ import React, { useEffect } from "react";
 import "../css/Cart.css";
 import Shopping from "./elements/Shopping";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { viewCartDB } from "../redux/modules/reduxcart";
 
 function Cart() {
   const dispatch = useDispatch();
 
-  const loadCart = useSelector((state) => state.reduxcart.carts);
-
   const navigate = useNavigate();
+
+
+
+  useEffect(()=>{
+    dispatch(viewCartDB())
+  },[]);
+
+  const loadCart = useSelector((state) => state.reduxcart.cart_list);
 
   console.log(loadCart);
 
 
-  useEffect(()=>{
-    axiosViewcart()
-  },[]);
-
-  const axiosViewcart = async()=> {
+  const axiosDeleteall =async()=>{
     const Token= sessionStorage.getItem("token");
-    const res = await axios.get("http://13.209.65.84/api/cart",
+    const ros =await axios.delete("http://13.209.65.84/api/cart",
     {headers :{
       "Authorization":Token
     }
     })
-    console.log("axiosViewcart",res);
-    // return res
+    console.log("axiosDeleteall",ros);
+    window.alert(ros.data);
+    window.location.reload();
+    return ros
   }
-
-console.log(axiosViewcart);
-
-
-  // const axiosDeleteall =async()=>{
-  //   const ros =await axios.delete("http://13.209.65.84/api/cart")
-  //   console.log("axiosDeleteall",ros);
-  //   return ros
-  // }
 
   return (
     <div className="cart">
@@ -56,13 +52,13 @@ console.log(axiosViewcart);
               전체선택 (0/1) <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             </h3>
           </div>
-          {/* <div className="cart_list" onClick={() => {axiosDeleteall()}}>
+          <div className="cart_list" onClick={() => {axiosDeleteall()}}>
             <h3 >전체삭제</h3>
-          </div> */}
+          </div>
         </div>
         <hr />
         {/* 매핑 */}
-        {loadCart.Posts.map((item, index) => {
+        {loadCart.posts.map((item, index) => {
           return <Shopping list={item} key={index} />;
         })}
       </div>
@@ -74,11 +70,11 @@ console.log(axiosViewcart);
           </div>
           <div className="delivery_fee">
             <h1>배달비</h1>
-            <h1>{loadCart.deliveryTotal.toLocaleString("ko-KR")}원</h1>
+            <h1>{loadCart.deliveryFee.toLocaleString("ko-KR")}원</h1>
           </div>
           <div className="expected_payment">
             <h1>결제예정금액</h1>
-            <h1>{(loadCart.deliveryTotal+loadCart.totalPrice).toLocaleString("ko-KR")}원</h1>
+            <h1>{(loadCart.deliveryFee+loadCart.totalPrice).toLocaleString("ko-KR")}원</h1>
           </div>
           <div className="payment">
             <button >주문하기</button>

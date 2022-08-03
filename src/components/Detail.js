@@ -4,24 +4,31 @@ import { useParams } from "react-router-dom";
 import './../css/Detail.css';
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import {productAction} from '../redux/actions/productAction';
 
 function Detail() {
 
   const params = useParams();
 
+  console.log(params)
+
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const [detailData, setDetailData] = useState({});
 
-  const productList = useSelector((state) => state.reduxProduct.productList);
+  const product = useSelector((state) => state.reduxProduct.productDetail);
 
-  console.log(productList);
+  console.log(product);
 
   sessionStorage.getItem("token");
 
-  // useEffect(()=>{
-  //   setDetailData(productList);
-  // },[])
+  useEffect(()=>{
+    // setDetailData(productList);
+    dispatch(productAction.getProductDetail(params))
+  },[])
 
   const axiosAddcart = async()=>{
     const Token = sessionStorage.getItem("token")
@@ -36,6 +43,8 @@ function Detail() {
   }
   )
   console.log(res);
+  window.alert(res.data);
+  navigate("/")
 };
 
 console.log(params);
@@ -44,20 +53,20 @@ console.log(params);
     <div className="product_basic_info">
       <div className="container">
         <div className="img_area">
-          <img src="/images/1589778571433l0.jpg" />
+        <img src={product?.image} alt="" />
         </div>
         <div className="basic_info">
-          <h2 className="item_name"></h2>
+          <h2 className="item_name">{product.title}</h2>
           <p className="sub_name">| 오직 마켓컬리에서만 |</p>
           <p className="discount_title">회원할인가</p>
           <p className="discounted_price">
-            <span className="price"> </span>원
+            <span className="price">{product.price?.toLocaleString("ko-KR")} </span>원
           </p>
           <table className="specs_table">
             <tbody>
               <tr>
                 <td>중량/용량</td>
-                <td></td>
+                <td>{product.weight}</td>
               </tr>
               <tr>
                 <td>배송구분</td>
@@ -96,7 +105,7 @@ console.log(params);
           </table>
           <div className="total">
             <span>총 상품금액 : </span>
-            <span>9,800</span>
+            <span>{product.price?.toLocaleString("ko-KR")}</span>
             <span>원</span>
           </div>
           <div className="point_area">
@@ -109,7 +118,8 @@ console.log(params);
 
             {(sessionStorage.getItem("token")) ?
               (
-                <button onClick={() => {axiosAddcart();}}>장바구니 담기</button>
+                <button onClick={() => {
+                  axiosAddcart();}}>장바구니 담기</button>
 
               ) : (
                 <button onClick={() => {
