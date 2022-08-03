@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './../../css/Header.css'
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
 
@@ -8,6 +9,9 @@ function Header() {
 
     sessionStorage.getItem("token");
     console.log(sessionStorage.getItem("token"));
+
+    // const keepId = useSelector((state)=>state.reduxUserId.username)
+    // console.log(keepId);
 
     return (
         <div className="header">
@@ -26,13 +30,18 @@ function Header() {
                         <div className="user_menu">
                             {(sessionStorage.getItem("token")) ?
                                 (
-                                    <div className="login" onClick={() => {
-                                        sessionStorage.clear();
-                                        alert('로그아웃 하셨습니다!');
-                                        window.location.reload();
-                                    }}>
-                                        <a href="">로그아웃</a>
-                                    </div>
+                                    <>
+                                        <div className="signup">
+                                            <a href="">{sessionStorage.getItem("username")} 님</a>
+                                        </div>
+                                        <div className="login" onClick={() => {
+                                            sessionStorage.clear();
+                                            alert('로그아웃 하셨습니다!');
+                                            window.location.reload();
+                                        }}>
+                                            <a href="">로그아웃</a>
+                                        </div>
+                                    </>
                                 ) : (
                                     <>
                                         <div className="signup" onClick={() => { navigate("/signup") }}>

@@ -2,7 +2,7 @@ import { legacy_createStore as createStore, combineReducers, applyMiddleware } f
 import thunk from "redux-thunk";
 import reduxsignup from "./modules/reduxsignup";
 import reduxProduct from './modules/reduxProduct';
-import reduxcart from "./modules/reduxcart"
+import reduxcart from "./modules/reduxcart";
 // redux Devtool(디버깅이 편함)
 import { composeWithDevTools } from 'redux-devtools-extension';
 
