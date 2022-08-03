@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import './../css/Detail.css';
 import { useNavigate } from "react-router-dom"
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import {productAction} from '../redux/actions/productAction';
 
@@ -29,6 +30,25 @@ function Detail() {
     dispatch(productAction.getProductDetail(params))
   },[])
 
+  const axiosAddcart = async()=>{
+    const Token = sessionStorage.getItem("token")
+    const res = await axios.post(`http://13.209.65.84/api/post/item/${params.id}`,
+    {
+      id: params.id
+    }
+  ,{
+    headers:{
+      "Authorization":Token
+    }
+  }
+  )
+  console.log(res);
+  window.alert(res.data);
+  navigate("/")
+};
+
+console.log(params);
+
   return (
     <div className="product_basic_info">
       <div className="container">
@@ -40,7 +60,7 @@ function Detail() {
           <p className="sub_name">| 오직 마켓컬리에서만 |</p>
           <p className="discount_title">회원할인가</p>
           <p className="discounted_price">
-            <span className="price">{product.price} </span>원
+            <span className="price">{product.price?.toLocaleString("ko-KR")} </span>원
           </p>
           <table className="specs_table">
             <tbody>
@@ -85,7 +105,7 @@ function Detail() {
           </table>
           <div className="total">
             <span>총 상품금액 : </span>
-            <span>{product.price}</span>
+            <span>{product.price?.toLocaleString("ko-KR")}</span>
             <span>원</span>
           </div>
           <div className="point_area">
@@ -99,12 +119,12 @@ function Detail() {
             {(sessionStorage.getItem("token")) ?
               (
                 <button onClick={() => {
-                  navigate("/cart");
-                }}>장바구니 담기</button>
+                  axiosAddcart();}}>장바구니 담기</button>
 
               ) : (
                 <button onClick={() => {
                   window.alert("로그인 후 이용 가능합니다!");
+                  navigate("/login");
                 }}>장바구니 담기</button>
               )}
           </div>
