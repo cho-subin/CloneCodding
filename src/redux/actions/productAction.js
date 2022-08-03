@@ -14,8 +14,18 @@ function getProducts() {
     };
 }
 
-function getProduct() {
-    return axios.get("http://13.209.65.84")
+function getProductDetail(params) {
+    return async (dispatch, getState) => {
+        console.log(params)
+        await axios.get(`http://13.209.65.84/api/post/${params.id}`).then(response => {
+            let list = {...response.data}
+            console.log(list)
+            dispatch({type:"PRODUCT_DETAIL", payload:list})
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    }
 }
 
-export const productAction = { getProducts }
+export const productAction = { getProducts, getProductDetail }

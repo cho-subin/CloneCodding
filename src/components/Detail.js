@@ -3,43 +3,50 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import './../css/Detail.css';
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux";
+import {productAction} from '../redux/actions/productAction';
 
 function Detail() {
 
   const params = useParams();
 
+  console.log(params)
+
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const [detailData, setDetailData] = useState({});
 
-  const productList = useSelector((state) => state.reduxProduct.productList);
+  const product = useSelector((state) => state.reduxProduct.productDetail);
 
-  console.log(productList);
+  console.log(product);
 
   sessionStorage.getItem("token");
 
-  // useEffect(()=>{
-  //   setDetailData(productList);
-  // },[])
+  useEffect(()=>{
+    // setDetailData(productList);
+    dispatch(productAction.getProductDetail(params))
+  },[])
 
   return (
     <div className="product_basic_info">
       <div className="container">
         <div className="img_area">
-          <img src="/images/1589778571433l0.jpg" />
+        <img src={product?.image} alt="" />
         </div>
         <div className="basic_info">
-          <h2 className="item_name">{detailData[0].title}</h2>
+          <h2 className="item_name">{product.title}</h2>
           <p className="sub_name">| 오직 마켓컬리에서만 |</p>
           <p className="discount_title">회원할인가</p>
           <p className="discounted_price">
-            <span className="price">{detailData[0].price} </span>원
+            <span className="price">{product.price} </span>원
           </p>
           <table className="specs_table">
             <tbody>
               <tr>
                 <td>중량/용량</td>
-                <td>{detailData.price}</td>
+                <td>{product.weight}</td>
               </tr>
               <tr>
                 <td>배송구분</td>
@@ -78,7 +85,7 @@ function Detail() {
           </table>
           <div className="total">
             <span>총 상품금액 : </span>
-            <span>9,800</span>
+            <span>{product.price}</span>
             <span>원</span>
           </div>
           <div className="point_area">
