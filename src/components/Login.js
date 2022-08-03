@@ -3,10 +3,13 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const Login = ({ is_login, setIsLogin }) => {
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   let [loginId, setLoginId] = useState("");
 
@@ -24,6 +27,7 @@ const Login = ({ is_login, setIsLogin }) => {
       console.log(res.headers.authorization);
       if (res.status === 200 && res.headers.authorization) {
         sessionStorage.setItem("token", res.headers.authorization);
+        sessionStorage.setItem("username", username.current.value); // header에 쓸 username 세션에 담기
         window.alert("로그인 하셨습니다!");
         navigate("/");
       }
